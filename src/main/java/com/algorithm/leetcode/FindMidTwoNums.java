@@ -1,0 +1,75 @@
+package com.algorithm.leetcode;
+
+import com.algorithm.util.ArrayUtils;
+import org.junit.Test;
+import java.util.Arrays;
+
+public class FindMidTwoNums {
+    @Test
+    public void findByDuiPeng(){
+        int[] arr1 = ArrayUtils.getSortedRandomIntArray(5);
+        int[] arr2 = ArrayUtils.getSortedRandomIntArray(5);
+        System.out.println("arr1 => " + Arrays.toString(arr1));
+        System.out.println("arr2 => " + Arrays.toString(arr2));
+
+//        System.out.println("mid : " + find(arr1, arr2));
+
+        int[] arrA = {1,2};
+        int[] arrB = {3,4};
+        System.out.println("mid : " + find(arrA, arrB));
+
+    }
+    @SuppressWarnings("all")
+    private double find(int[] arr1, int[] arr2) {
+        int i = 0;
+        int j = 0;
+
+        int index1 = 0;
+        int index2 = -1;
+        int len = arr1.length + arr2.length;
+        if ((len) % 2 == 0){
+            index1 = len / 2 - 1;
+            index2 = index1 + 1;
+        }else{
+            index1 = len/2;
+        }
+        System.out.println("index1 = " + index1 + "\tindex2 = " + index2);
+        int count = 0;
+        int mid1 = 0;
+        int mid2 = 0;
+        int m = 0;
+        while (i <= arr1.length){
+            if (i >= arr1.length) {
+                m = arr1.length-1;
+            }else {m=i;}
+            while (j < arr2.length && arr1[m] > arr2[j]){
+                if (count == index1){
+                    mid1 = arr2[j];
+                    if (index2 == -1){
+                        return mid1;
+                    }
+                }
+                if (count == index2){
+                    mid2 = arr2[j];
+                    return (mid1 + mid2) / 2.0;
+                }
+                count++;
+                j++;
+            }
+            if (count == index1){
+                mid1 = arr1[m];
+                if (index2 == -1){
+                    return mid1;
+                }
+            }
+            if (count == index2){
+                mid2 = arr1[m];
+                return (mid1 + mid2) / 2.0;
+            }
+            count++;
+            i++;
+        }
+        return 0;
+    }
+
+}

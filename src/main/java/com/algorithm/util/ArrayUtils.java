@@ -1,5 +1,7 @@
 package com.algorithm.util;
 
+import com.algorithm.sorts.OnLogNSort;
+
 import java.util.Random;
 
 /**
@@ -23,4 +25,8 @@ public class ArrayUtils {
 		return ints;
 	}
 
+	public static int[] getSortedRandomIntArray(int length){
+		OnLogNSort onLogNSort = new OnLogNSort();
+		return onLogNSort.quickSort(getRandomIntArray(length));
+	}
 }

@@ -22,7 +22,7 @@ public class OnLogNSort {
 	 * @param arr 排序的数组
 	 * @return 排序完成的数组
 	 */
-	private int[] quickSort(int[] arr) {
+	public int[] quickSort(int[] arr) {
 		//不改变原数组，先将原数组进行深复制
 		int[] ints = new int[arr.length];
 		System.arraycopy(arr, 0, ints, 0, arr.length);
