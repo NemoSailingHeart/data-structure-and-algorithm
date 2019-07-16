@@ -12,19 +12,17 @@ public class FindMidTwoNums {
         System.out.println("arr1 => " + Arrays.toString(arr1));
         System.out.println("arr2 => " + Arrays.toString(arr2));
 
-//        System.out.println("mid : " + find(arr1, arr2));
-
-        int[] arrA = {1,2};
-        int[] arrB = {3,4};
+        int[] arrA = {1,3};
+        int[] arrB = {2};
         System.out.println("mid : " + find(arrA, arrB));
 
     }
-    @SuppressWarnings("all")
+
     private double find(int[] arr1, int[] arr2) {
         int i = 0;
         int j = 0;
 
-        int index1 = 0;
+        int index1;
         int index2 = -1;
         int len = arr1.length + arr2.length;
         if ((len) % 2 == 0){
@@ -33,16 +31,11 @@ public class FindMidTwoNums {
         }else{
             index1 = len/2;
         }
-        System.out.println("index1 = " + index1 + "\tindex2 = " + index2);
         int count = 0;
         int mid1 = 0;
         int mid2 = 0;
-        int m = 0;
         while (i <= arr1.length){
-            if (i >= arr1.length) {
-                m = arr1.length-1;
-            }else {m=i;}
-            while (j < arr2.length && arr1[m] > arr2[j]){
+            while (j < arr2.length && (arr1.length == i || arr1[i] > arr2[j])){
                 if (count == index1){
                     mid1 = arr2[j];
                     if (index2 == -1){
@@ -56,14 +49,14 @@ public class FindMidTwoNums {
                 count++;
                 j++;
             }
-            if (count == index1){
-                mid1 = arr1[m];
+            if (count == index1 && i < arr1.length){
+                mid1 = arr1[i];
                 if (index2 == -1){
                     return mid1;
                 }
             }
-            if (count == index2){
-                mid2 = arr1[m];
+            if (count == index2 && i < arr1.length){
+                mid2 = arr1[i];
                 return (mid1 + mid2) / 2.0;
             }
             count++;
@@ -71,5 +64,4 @@ public class FindMidTwoNums {
         }
         return 0;
     }
-
 }
