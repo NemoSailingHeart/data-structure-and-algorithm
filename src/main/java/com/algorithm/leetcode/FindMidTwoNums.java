@@ -33,7 +33,7 @@ public class FindMidTwoNums {
         }
         int count = 0;
         int mid1 = 0;
-        int mid2 = 0;
+        int mid2;
         while (i <= arr1.length){
             while (j < arr2.length && (arr1.length == i || arr1[i] > arr2[j])){
                 if (count == index1){
