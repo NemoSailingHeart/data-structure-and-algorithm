@@ -23,8 +23,7 @@ public class ArraysAndLists {
      */
     @Test
     public void reverseMyLinkList(){
-        MyNode myNode = LinkedListUtil.getMyLinkFirstNode(10);
-        MyNode tmpNode = myNode;
+        MyNode tmpNode = LinkedListUtil.getMyLinkFirstNode(10);
         System.out.println("原链表为：");
         while (tmpNode !=null){
             System.out.print(tmpNode.value + "\t");

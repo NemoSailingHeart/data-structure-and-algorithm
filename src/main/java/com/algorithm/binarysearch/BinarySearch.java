@@ -38,8 +38,8 @@ public class BinarySearch {
 
     /**
      * 递归函数
-     * @param arr
-     * @param i
+     * @param arr 数组
+     * @param i i
      */
     private int recursion(int[] arr, int i, int start, int end) {
         int mid = (start + end) / 2;

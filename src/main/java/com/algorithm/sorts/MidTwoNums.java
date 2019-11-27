@@ -12,7 +12,6 @@ public class MidTwoNums {
 
     @Test
     public void run1() {
-        int[] ints = new OnnSort().selectSort(arr1);
         System.out.println(Arrays.toString(arr1));
 
         new OnnSort().selectSort(arr2);
@@ -35,11 +34,10 @@ public class MidTwoNums {
         int j = 0;
         int[] arrTmp = arr1;
         if (arr1.length>=arr2.length){
-            arrTmp = arr1;
             arr1=arr2;
             arr2=arrTmp;
         }
-        int tmpIndex = 0;
+        int tmpIndex;
         int[] lastArr= {0,0};
         while (i < arr1.length || j < arr2.length){
             if (arr1[i] <= arr2[j]){
@@ -62,11 +60,12 @@ public class MidTwoNums {
                 lastArr[1] = arrTmp[tmpIndex];
                 break;
             }
-            count = count++;
+            count++;
         }
         return index2 == -1? lastArr[0]:(lastArr[0]+lastArr[1]) /2;
     }
 
+    @SuppressWarnings("unused")
     private int findTheMid(int[] arr1, int[] arr2){
         int len1 = arr1.length;
         int len2 = arr2.length;
@@ -78,14 +77,12 @@ public class MidTwoNums {
         int j = 0;
         while (i< len1 && j < len2 && count <= lenAll/2){
             if (arr1[i]<=arr2[j]){
-                resIndex = i;
                 resFlag = 1;
                 count = count+1;
                 i =i+1;
             }
             else {
                 resFlag = 2;
-                resIndex = j;
                 count =count +1;
                 j =j+1;
             }
