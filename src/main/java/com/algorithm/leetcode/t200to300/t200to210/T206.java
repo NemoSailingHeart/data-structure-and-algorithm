@@ -16,6 +16,13 @@ import org.junit.Test;
 public class T206 {
     @Test
     public void t206(){
+        ListNode head = getListNode();
+        printListNodes(head);
+        ListNode listNode = reverseList(head);
+        printListNodes(listNode);
+    }
+
+    private ListNode getListNode() {
         ListNode head = new ListNode(1);
         ListNode tmp = new ListNode(2);
         head.next = tmp;
@@ -24,7 +31,7 @@ public class T206 {
             tmp.next = next;
             tmp = next;
         }
-        printListNodes(head);
+        return head;
     }
 
     private void printListNodes(ListNode head) {
@@ -38,8 +45,51 @@ public class T206 {
         System.out.println("\r\n------------- end --------------");
     }
 
-    // TODO 有空了再写
-    public ListNode reverseList(ListNode head) {
-        return null;
+    /**
+     * 方法1：迭代方式
+     * @param head 链表头
+     * @return 反转后的链表头
+     */
+    private ListNode reverseList(ListNode head) {
+        // 上一个节点
+        ListNode pre = null;
+        // 当前节点
+        ListNode cur = head;
+
+        while (cur != null) {
+            ListNode tmp = cur.next;
+            cur.next = pre;
+            pre = cur;
+            cur = tmp;
+        }
+        return pre;
+    }
+
+    @Test
+    public void t206_2(){
+        ListNode listNode = getListNode();
+        printListNodes(listNode);
+        printListNodes(reverseListR(listNode));
+    }
+    /**
+     * 递归方式反转链表
+     * @param head 链表头
+     * @return 返回的链表头
+     */
+    private ListNode reverseListR(ListNode head) {
+        //TODO 尚未完成
+        if (head.next == null){
+            return head;
+        } else {
+            head.next = head;
+        }
+        return reverseListR(head.next);
+    }
+
+    @Test
+    public void t206Stack(){
+        ListNode listNode = getListNode();
+        printListNodes(listNode);
+        printListNodes(reverseListR(listNode));
     }
 }
