@@ -48,4 +48,19 @@ public class ArrayUtils {
 		OnLogNSort onLogNSort = new OnLogNSort();
 		return onLogNSort.quickSort(getRandomIntArray(length));
 	}
+
+	/**
+	 * 将字符串转成数组
+	 * @param str 字符串格式  [2,1,3,5,4]
+	 * @return 数组
+	 */
+	public static int[] stringToIntArray(String str){
+		String substring = str.substring(1, str.length()-1);
+		String[] split = substring.split(",");
+		int[] ints = new int[split.length];
+		for (int i = 0; i < split.length; i++) {
+			ints[i] = Integer.parseInt(split[i]);
+		}
+		return ints;
+	}
 }
